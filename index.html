@@ -9,7 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Gray background */
+            background: url('https://github.com/reinTX/crafting-calculator/raw/main/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -22,6 +23,23 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 400px; /* Fixed width for centering */
             text-align: center;
+            position: relative;
+        }
+        .images {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .images img {
+            height: 40px; /* Adjust size as needed */
+            vertical-align: middle;
+            margin-right: 10px; /* Space between images */
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
         }
         label, input {
             display: block;
@@ -35,18 +53,6 @@
         button {
             padding: 10px 20px;
             font-size: 16px;
-        }
-        .result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .images {
-            margin-top: 20px;
-        }
-        .images img {
-            height: 40px; /* Adjust size as needed */
-            vertical-align: middle;
-            margin: 0 10px;
         }
     </style>
 </head>
@@ -65,9 +71,10 @@
         <div class="result" id="result"></div>
         
         <div class="images">
-            <img id="blueImage" src="https://github.com/reinTX/crafting-calculator/blob/main/image.png" alt="Blue Material">
-            <img id="greenImage" src="https://via.placeholder.com/40" alt="Green Material">
-            <img id="manaImage" src="https://via.placeholder.com/40" alt="Mana">
+            <!-- Replace the src attributes with the actual URLs of your images -->
+            <img id="blueImage" src="https://github.com/reinTX/crafting-calculator/raw/main/images/blue.png" alt="Blue Material">
+            <img id="greenImage" src="https://github.com/reinTX/crafting-calculator/raw/main/images/green.png" alt="Green Material">
+            <img id="manaImage" src="https://github.com/reinTX/crafting-calculator/raw/main/images/mana.png" alt="Mana">
         </div>
     </div>
     
