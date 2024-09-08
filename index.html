@@ -34,8 +34,13 @@
         .item img {
             width: 50px; /* Set a fixed width */
             height: 50px; /* Set a fixed height */
-            object-fit: cover; /* Ensure images are cropped to fit the specified dimensions */
+            object-fit: contain; /* Maintain aspect ratio without distortion */
             margin-right: 10px;
+            transform: scale(1); /* Default scale */
+        }
+        .item img.green {
+            /* Apply a scale transformation to adjust size if necessary */
+            transform: scale(0.95); /* Slightly scale down the green image */
         }
         .item span {
             font-size: 18px;
