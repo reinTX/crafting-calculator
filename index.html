@@ -34,6 +34,7 @@
         .item img {
             width: 50px; /* Set a fixed width */
             height: 50px; /* Set a fixed height */
+            object-fit: cover; /* Ensure images are cropped to fit the specified dimensions */
             margin-right: 10px;
         }
         .item span {
@@ -79,7 +80,7 @@
             const greenMaterials = parseInt(document.getElementById('greenInput').value) || 0;
 
             const crafts = Math.min(Math.floor(blueMaterials / 24), Math.floor(greenMaterials / 16));
-            const mana = crafts * 400;
+            const mana = Math.floor(crafts / 9) * 400; // 400 mana per 9 crafts
 
             document.getElementById('craftsResult').innerText = `Crafts Possible: ${crafts}`;
             document.getElementById('manaResult').innerText = `Mana Earned: ${mana}`;
