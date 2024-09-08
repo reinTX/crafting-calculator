@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafting Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Gray background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            background-color: #ffffff; /* White background for the content */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Fixed width for centering */
+            text-align: center;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            width: calc(100% - 20px); /* Full width with padding adjustment */
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .images {
+            margin-top: 20px;
+        }
+        .images img {
+            height: 40px; /* Adjust size as needed */
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crafting Calculator</h1>
+        
+        <label for="blue">Enter amount of blue materials:</label>
+        <input type="number" id="blue" placeholder="Enter blue materials">
+        
+        <label for="green">Enter amount of green materials:</label>
+        <input type="number" id="green" placeholder="Enter green materials">
+        
+        <button onclick="computeCrafts()">Compute</button>
+        
+        <div class="result" id="result"></div>
+        
+        <div class="images">
+            <img id="blueImage" src="https://via.placeholder.com/40" alt="Blue Material">
+            <img id="greenImage" src="https://via.placeholder.com/40" alt="Green Material">
+            <img id="manaImage" src="https://via.placeholder.com/40" alt="Mana">
+        </div>
+    </div>
+    
+    <script>
+        function computeCrafts() {
+            const blueMaterials = parseInt(document.getElementById('blue').value, 10);
+            const greenMaterials = parseInt(document.getElementById('green').value, 10);
+            
+            if (isNaN(blueMaterials) || isNaN(greenMaterials)) {
+                document.getElementById('result').innerText = 'Please enter valid numbers for both materials.';
+                return;
+            }
+            
+            const bluePerCraft = 24;
+            const greenPerCraft = 16;
+            const craftsPerMana = 9;
+            const manaPerCraft = 400; // Updated mana per craft
+            
+            const craftsByBlue = Math.floor(blueMaterials / bluePerCraft);
+            const craftsByGreen = Math.floor(greenMaterials / greenPerCraft);
+            
+            const crafts = Math.min(craftsByBlue, craftsByGreen);
+            const totalMana = crafts * (manaPerCraft / craftsPerMana);
+            
+            document.getElementById('result').innerText = `You can craft ${crafts} items and gain ${totalMana.toFixed(2)} mana.`;
+        }
+    </script>
+</body>
+</html>
