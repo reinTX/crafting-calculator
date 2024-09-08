@@ -8,7 +8,8 @@
         body {
             font-family: Arial, sans-serif;
             background: url('https://github.com/reinTX/crafting-calculator/raw/b9ca31c6c4901072e58d1f21f4404ee7f24f5735/images%20-%20Copy/Forgotten%20Runiverse%20Wallpaper%203-1724631536379%20(1).jpeg') no-repeat center center fixed;
-            background-size: cover;
+            background-size: cover; /* Ensure the background covers the viewport without stretching */
+            background-attachment: fixed; /* Fix background position */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -28,6 +29,7 @@
             display: flex;
             align-items: center;
             margin: 10px 0;
+            justify-content: center;
         }
         .item img {
             width: 50px;
@@ -36,6 +38,15 @@
         }
         .item span {
             font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item input {
+            width: 80px; /* Adjust input width */
+            padding: 5px;
+            margin-left: 10px;
+            font-size: 16px; /* Adjust font size */
         }
         .result {
             margin-top: 20px;
