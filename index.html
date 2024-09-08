@@ -29,13 +29,14 @@
         .item {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align items to the start of the container */
             margin: 10px 0;
         }
         .item img {
             width: 50px; /* Set a fixed width */
             height: 50px; /* Set a fixed height */
             object-fit: cover; /* Ensure images fit within the dimensions without distortion */
+            margin-right: 10px; /* Space between image and input box */
         }
         .item span {
             font-size: 18px;
@@ -46,7 +47,6 @@
             width: 80px; /* Adjust input width */
             padding: 5px;
             font-size: 16px; /* Adjust font size */
-            margin-left: 10px;
             text-align: center; /* Center-align text within input */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
