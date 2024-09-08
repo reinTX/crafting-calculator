@@ -7,52 +7,38 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url(images - Copy/Forgotten Runiverse Wallpaper 3-1724631536379 (1).jpeg) no-repeat center center fixed;
+            background: url('Images/background/Forgotten Runiverse Wallpaper 3-1724631536379 (1).jpeg') no-repeat center center fixed;
             background-size: cover;
+            color: #fff;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 100vh; /* Full viewport height */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         .container {
-            background-color: #ffffff; /* White background for the content */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 400px; /* Fixed width for centering */
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
             text-align: center;
-            position: relative;
         }
-        .images {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+        .item {
             display: flex;
             align-items: center;
+            margin: 10px 0;
         }
-        .images img {
-            height: 40px; /* Adjust size as needed */
-            vertical-align: middle;
-            margin-right: 10px; /* Space between images */
+        .item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .item span {
+            font-size: 18px;
         }
         .result {
             margin-top: 20px;
-            font-weight: bold;
-        }
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input {
-            padding: 8px;
-            width: calc(100% - 20px); /* Full width with padding adjustment */
-            box-sizing: border-box;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
         }
     </style>
 </head>
@@ -60,46 +46,33 @@
     <div class="container">
         <h1>Crafting Calculator</h1>
         
-        <label for="blue">Enter amount of blue materials:</label>
-        <input type="number" id="blue" placeholder="Enter blue materials">
+        <div class="item">
+            <img src="Images/blue.webp" alt="Blue Material">
+            <span>Blue Materials: <input type="number" id="blueInput" value="0"></span>
+        </div>
         
-        <label for="green">Enter amount of green materials:</label>
-        <input type="number" id="green" placeholder="Enter green materials">
-        
-        <button onclick="computeCrafts()">Compute</button>
-        
-        <div class="result" id="result"></div>
-        
-        <div class="images">
-            <!-- Replace the src attributes with the actual URLs of your images -->
-            <img id="blueImage" src="images - Copy/blue.webp">
-            <img id="greenImage" src="images - Copy/green.webp">
-            <img id="manaImage" src="https://github.com/reinTX/crafting-calculator/raw/main/images/mana.png" alt="Mana">
+        <div class="item">
+            <img src="Images/green.webp" alt="Green Material">
+            <span>Green Materials: <input type="number" id="greenInput" value="0"></span>
+        </div>
+
+        <div class="result">
+            <button onclick="calculate()">Calculate</button>
+            <p id="craftsResult"></p>
+            <p id="manaResult"></p>
         </div>
     </div>
-    
+
     <script>
-        function computeCrafts() {
-            const blueMaterials = parseInt(document.getElementById('blue').value, 10);
-            const greenMaterials = parseInt(document.getElementById('green').value, 10);
-            
-            if (isNaN(blueMaterials) || isNaN(greenMaterials)) {
-                document.getElementById('result').innerText = 'Please enter valid numbers for both materials.';
-                return;
-            }
-            
-            const bluePerCraft = 24;
-            const greenPerCraft = 16;
-            const craftsPerMana = 9;
-            const manaPerCraft = 400; // Updated mana per craft
-            
-            const craftsByBlue = Math.floor(blueMaterials / bluePerCraft);
-            const craftsByGreen = Math.floor(greenMaterials / greenPerCraft);
-            
-            const crafts = Math.min(craftsByBlue, craftsByGreen);
-            const totalMana = crafts * (manaPerCraft / craftsPerMana);
-            
-            document.getElementById('result').innerText = `You can craft ${crafts} items and gain ${totalMana.toFixed(2)} mana.`;
+        function calculate() {
+            const blueMaterials = parseInt(document.getElementById('blueInput').value) || 0;
+            const greenMaterials = parseInt(document.getElementById('greenInput').value) || 0;
+
+            const crafts = Math.min(Math.floor(blueMaterials / 24), Math.floor(greenMaterials / 16));
+            const mana = crafts * 400;
+
+            document.getElementById('craftsResult').innerText = `Crafts Possible: ${crafts}`;
+            document.getElementById('manaResult').innerText = `Mana Earned: ${mana}`;
         }
     </script>
 </body>
