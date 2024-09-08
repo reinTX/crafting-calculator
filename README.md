@@ -1,0 +1,2 @@
+# crafting-calculator
+mana calc
