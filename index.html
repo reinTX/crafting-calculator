@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('https://github.com/reinTX/crafting-calculator/raw/b9ca31c6c4901072e58d1f21f4404ee7f24f5735/images%20-%20Copy/Forgotten%20Runiverse%20Wallpaper%203-1724631536379%20(1).jpeg') no-repeat center center fixed;
+            background: url('https://example.com/path/to/your/background-image.jpg') no-repeat center center fixed;
             background-size: cover; /* Ensure the background covers the viewport without stretching */
             background-attachment: fixed; /* Fix background position */
             color: #fff;
@@ -16,6 +16,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative; /* Required for absolute positioning of the logo */
         }
         .container {
             background-color: rgba(0, 0, 0, 0.6);
@@ -30,13 +31,11 @@
             align-items: center;
             justify-content: center;
             margin: 10px 0;
-            gap: 10px; /* Add gap between items */
         }
         .item img {
             width: 50px; /* Set a fixed width */
             height: 50px; /* Set a fixed height */
             object-fit: cover; /* Ensure images fit within the dimensions without distortion */
-            transform: scale(1); /* Default scale */
         }
         .item span {
             font-size: 18px;
@@ -49,23 +48,35 @@
             font-size: 16px; /* Adjust font size */
             margin-left: 10px;
             text-align: center; /* Center-align text within input */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
         .result {
             margin-top: 20px;
         }
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px; /* Adjust size of the logo */
+            height: auto; /* Maintain aspect ratio */
+        }
     </style>
 </head>
 <body>
+    <a href="https://runiverse.wiki/" target="_blank">
+        <img src="https://assets.runiverse.wiki/images/runiverse-wiki-logo.webp" alt="Runiverse Wiki" class="logo">
+    </a>
+    
     <div class="container">
         <h1>Crafting Calculator</h1>
         
         <div class="item">
-            <img class="blue" src="https://github.com/reinTX/crafting-calculator/raw/b9ca31c6c4901072e58d1f21f4404ee7f24f5735/images%20-%20Copy/blue.webp" alt="Blue Material">
+            <img class="blue" src="https://via.placeholder.com/50x50.png?text=Blue" alt="Blue Material">
             <span>Blue Materials: <input type="number" id="blueInput" value="0"></span>
         </div>
         
         <div class="item">
-            <img class="green" src="https://github.com/reinTX/crafting-calculator/raw/b9ca31c6c4901072e58d1f21f4404ee7f24f5735/images%20-%20Copy/green.webp" alt="Green Material">
+            <img class="green" src="https://via.placeholder.com/50x50.png?text=Green" alt="Green Material">
             <span>Green Materials: <input type="number" id="greenInput" value="0"></span>
         </div>
 
