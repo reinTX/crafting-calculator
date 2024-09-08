@@ -30,20 +30,13 @@
             align-items: center;
             justify-content: center;
             margin: 10px 0;
+            gap: 10px; /* Add gap between items */
         }
         .item img {
             width: 50px; /* Set a fixed width */
             height: 50px; /* Set a fixed height */
             object-fit: cover; /* Ensure images fit within the dimensions without distortion */
-            margin-right: 10px;
             transform: scale(1); /* Default scale */
-        }
-        .item img.blue {
-            /* No scaling adjustment for blue */
-        }
-        .item img.green {
-            /* Adjust scale to ensure green image is visually similar in size */
-            transform: scale(0.9); /* Slightly scale down the green image */
         }
         .item span {
             font-size: 18px;
@@ -55,6 +48,7 @@
             padding: 5px;
             font-size: 16px; /* Adjust font size */
             margin-left: 10px;
+            text-align: center; /* Center-align text within input */
         }
         .result {
             margin-top: 20px;
